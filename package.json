@@ -23,7 +23,10 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint server/. test/. --config .eslintrc.json",
-    "start": "node server/",
+    "build": "nuxt build",
+    "dev": "DEBUG=nuxt:* nodemon --watch server/ --watch config/ server/index.js",
+    "prestart": "npm run build",
+    "start": "NODE_ENV=production node server/",
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
@@ -38,12 +41,14 @@
     "feathers-rest": "^1.7.2",
     "feathers-socketio": "^1.6.0",
     "helmet": "^3.6.0",
+    "nuxt": "^0.10.7",
     "serve-favicon": "^2.4.2",
     "winston": "^2.3.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
     "mocha": "^3.3.0",
+    "nodemon": "^1.11.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0"
   }
