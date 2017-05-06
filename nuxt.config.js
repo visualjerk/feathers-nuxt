@@ -9,15 +9,15 @@ module.exports = {
         jQuery: 'jquery',
         Tether: 'tether',
         'window.jQuery': 'jquery',
-        'window.Tether': 'tether'
-      })
-    ]
+        'window.Tether': 'tether',
+      }),
+    ],
   },
   css: [
     {src: '~assets/scss/style.scss', lang: 'scss'},
   ],
   dev: process.env.NODE_ENV !== 'production',
   plugins: [
-    {src: '~plugins/bootstrap.js'}
-  ]
+    {src: '~plugins/bootstrap.js'},
+  ],
 };
