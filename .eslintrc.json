@@ -1,6 +1,7 @@
 {
   "env": {
     "es6": true,
+    "browser": true,
     "node": true,
     "mocha": true
   },
@@ -22,5 +23,8 @@
       "error",
       "always"
     ]
+  },
+    "parserOptions": {
+    "sourceType": "module"
   }
 }
