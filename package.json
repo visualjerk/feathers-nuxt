@@ -22,7 +22,7 @@
   },
   "scripts": {
     "test": "npm run eslint && npm run mocha",
-    "eslint": "eslint server/. test/. --config .eslintrc.json",
+    "eslint": "eslint server/. test/. nuxt.config.js --config .eslintrc.json --fix",
     "build": "nuxt build",
     "dev": "DEBUG=nuxt:* nodemon --watch server/ --watch config/ --watch nuxt.config.js server/index.js",
     "prestart": "npm run build",
