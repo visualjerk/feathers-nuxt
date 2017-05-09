@@ -3,7 +3,18 @@ const webpack = require('webpack');
 
 module.exports = {
   build: {
-    vendor: ['jquery', 'tether', 'bootstrap'],
+    vendor: [
+      // Bootstrap
+      'jquery',
+      'tether',
+      'bootstrap',
+      // Feathers
+      'feathers/client',
+      'feathers-socketio/client',
+      'socket.io-client',
+      'feathers-hooks',
+      'feathers-authentication-client',
+    ],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -26,5 +37,9 @@ module.exports = {
   dev: process.env.NODE_ENV !== 'production',
   plugins: [
     {src: '~plugins/bootstrap.js'},
+    {src: '~plugins/feathers.js', injectAs: 'feathers'},
   ],
+  router: {
+    middleware: 'check-auth',
+  },
 };

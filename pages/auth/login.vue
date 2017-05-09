@@ -1,0 +1,35 @@
+<template>
+  <div id="login" class="container">
+    <h1>Please sign in</h1>
+    <input v-model="email" type="email" placeholder="Email">
+    <input v-model="password" type="password" placeholder="Password">
+    <button @click="login" class="btn btn-primary">Login</button>
+    <ul class="nav">
+      <li class="nav-item">
+        <nuxt-link to="/" class="nav-link">Home</nuxt-link>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    middleware: 'anonymous',
+    data () {
+      return {
+        email: '',
+        password: '',
+      }
+    },
+    methods: {
+      login() {
+        console.log('Login attempt...');
+        this.$store.dispatch('auth/login', {email: this.email, password: this.password})
+          .then(() => {
+            this.$router.replace('/');
+          })
+          .catch(error => {});
+      }
+    }
+  }
+</script>
