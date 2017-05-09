@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -12,6 +13,12 @@ module.exports = {
         'window.Tether': 'tether',
       }),
     ],
+    extend(config) {
+      const aliases = Object.assign(config.resolve.alias, {
+        '~helpers': path.resolve(__dirname, 'helpers'),
+      });
+      config.resolve.alias = aliases; // eslint-disable-line no-param-reassign
+    },
   },
   css: [
     {src: '~assets/scss/style.scss', lang: 'scss'},
