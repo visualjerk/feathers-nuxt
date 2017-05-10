@@ -8,19 +8,8 @@ function getTokenFromRequest (req) {
 }
 
 export default function ({isServer, store, req}) {
-  console.log('Checking JWT authentication...');
-
   const accessToken = (isServer) ? getTokenFromRequest(req) : window.localStorage.getItem(cookieName);
-  if (!accessToken) {
-    console.log('Skipping JWT authentication (no token)');
-    return;
-  }
+  if (!accessToken) return;
 
-  return store.dispatch('auth/jwt', {accessToken})
-    .then(response => {
-      console.log('JWT authentication success!');
-    })
-    .catch(error => {
-      console.log('JWT authentication failed!');
-    });
+  return store.dispatch('auth/jwt', {accessToken});
 }

@@ -6,7 +6,6 @@ export const state = {
 
 export const mutations = {
   SET_USER (state, user) {
-    console.log('SET_USER', user);
     state.user = user || null;
   },
 };
@@ -24,11 +23,7 @@ export const actions = {
       accessToken,
     })
       .then(response => {
-        console.log('JWT authentication successful');
         commit('SET_USER', response);
-      })
-      .catch(error => {
-        console.log('JWT authentication failed');
       });
   },
   login({commit}, {email, password}) {
@@ -38,14 +33,12 @@ export const actions = {
       password,
     })
       .then(response => {
-        console.log('Login success');
         commit('SET_USER', response);
       });
   },
   logout ({commit}) {
     return feathers.logout()
       .then(() => {
-        console.log('Logout success');
         commit('SET_USER', null);
       });
   },
