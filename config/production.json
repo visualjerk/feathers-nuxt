@@ -1,4 +1,4 @@
 {
-  "host": "feathers-nuxt-app.feathersjs.com",
+  "host": "HOST",
   "port": "PORT"
 }
