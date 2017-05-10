@@ -47,4 +47,10 @@ export const actions = {
         commit('SET_USER', null);
       });
   },
+  register ({dispatch}, {email, password}) {
+    return feathers.service('users').create({email, password})
+      .then(response => {
+        return dispatch('login', {email, password});
+      });
+  },
 };

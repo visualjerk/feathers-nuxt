@@ -5,6 +5,9 @@
       <li class="nav-item" v-if="!isAuthenticated">
         <nuxt-link to="/auth/login" class="nav-link">Login</nuxt-link>
       </li>
+      <li class="nav-item" v-if="!isAuthenticated">
+        <nuxt-link to="/auth/register" class="nav-link">Register</nuxt-link>
+      </li>
       <li class="nav-item" v-if="isAuthenticated">
         <nuxt-link to="/auth/logout" class="nav-link">Logout</nuxt-link>
       </li>
