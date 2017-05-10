@@ -11,5 +11,8 @@ export default function ({isServer, store, req}) {
   const accessToken = (isServer) ? getTokenFromRequest(req) : window.localStorage.getItem(cookieName);
   if (!accessToken) return;
 
-  return store.dispatch('auth/jwt', {accessToken});
+  return store.dispatch('auth/jwt', {accessToken})
+    .catch(() => {
+      // Ignore invalid JWT
+    });
 }
