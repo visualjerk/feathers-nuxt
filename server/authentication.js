@@ -2,7 +2,6 @@ const authentication = require('feathers-authentication');
 const jwt = require('feathers-authentication-jwt');
 const local = require('feathers-authentication-local');
 
-
 module.exports = function () {
   const app = this;
   const config = app.get('authentication');
@@ -18,11 +17,11 @@ module.exports = function () {
   app.service('authentication').hooks({
     before: {
       create: [
-        authentication.hooks.authenticate(config.strategies)
+        authentication.hooks.authenticate(config.strategies),
       ],
       remove: [
-        authentication.hooks.authenticate('jwt')
-      ]
-    }
+        authentication.hooks.authenticate('jwt'),
+      ],
+    },
   });
 };

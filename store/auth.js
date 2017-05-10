@@ -18,22 +18,27 @@ export const getters = {
 
 export const actions = {
   jwt({commit}, {accessToken}) {
-    return feathers.authenticate({
-      strategy: 'jwt',
-      accessToken,
-    })
+    return feathers.authenticate({strategy: 'jwt', accessToken})
       .then(response => {
-        commit('SET_USER', response);
+        return feathers.passport.verifyJWT(response.accessToken);
+      })
+      .then(payload => {
+        return feathers.service('users').get(payload.userId);
+      })
+      .then(user => {
+        commit('SET_USER', user);
       });
   },
   login({commit}, {email, password}) {
-    return feathers.authenticate({
-      strategy: 'local',
-      email,
-      password,
-    })
+    return feathers.authenticate({strategy: 'local', email, password})
       .then(response => {
-        commit('SET_USER', response);
+        return feathers.passport.verifyJWT(response.accessToken);
+      })
+      .then(payload => {
+        return feathers.service('users').get(payload.userId);
+      })
+      .then(user => {
+        commit('SET_USER', user);
       });
   },
   logout ({commit}) {
