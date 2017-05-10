@@ -7,7 +7,7 @@ function getTokenFromRequest (req) {
   return jwtCookie.split('=')[1];
 }
 
-export default function ({isServer, store, req, feathers}) {
+export default function ({isServer, store, req}) {
   console.log('Checking JWT authentication...');
 
   const accessToken = (isServer) ? getTokenFromRequest(req) : window.localStorage.getItem(cookieName);
@@ -16,13 +16,11 @@ export default function ({isServer, store, req, feathers}) {
     return;
   }
 
-  return feathers.authenticate({strategy: 'jwt', accessToken})
+  return store.dispatch('auth/jwt', {accessToken})
     .then(response => {
       console.log('JWT authentication success!');
-      store.commit('auth/SET_USER', response);
     })
     .catch(error => {
       console.log('JWT authentication failed!');
-      store.commit('auth/SET_USER', null);
     });
 }

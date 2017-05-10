@@ -28,7 +28,9 @@
           .then(() => {
             this.$router.replace('/');
           })
-          .catch(error => {});
+          .catch(error => {
+            this.email = this.password = '';
+          });
       }
     }
   }
