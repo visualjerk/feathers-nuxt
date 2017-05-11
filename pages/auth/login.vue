@@ -1,14 +1,9 @@
 <template>
-  <div id="login" class="container">
-    <h1>Please sign in</h1>
+  <div id="login">
+    <h1>Please login</h1>
     <input v-model="email" type="email" placeholder="Email">
     <input v-model="password" type="password" placeholder="Password">
     <button @click="login" class="btn btn-primary">Login</button>
-    <ul class="nav">
-      <li class="nav-item">
-        <nuxt-link to="/" class="nav-link">Home</nuxt-link>
-      </li>
-    </ul>
   </div>
 </template>
 

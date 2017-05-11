@@ -1,14 +1,9 @@
 <template>
-  <div id="register" class="container">
+  <div id="register">
     <h1>Please register</h1>
     <input v-model="email" type="email" placeholder="Email">
     <input v-model="password" type="password" placeholder="Password">
     <button @click="register" class="btn btn-primary">Register</button>
-    <ul class="nav">
-      <li class="nav-item">
-        <nuxt-link to="/" class="nav-link">Home</nuxt-link>
-      </li>
-    </ul>
   </div>
 </template>
 
