@@ -41,5 +41,6 @@ module.exports = {
   ],
   router: {
     middleware: 'check-auth',
+    linkActiveClass: 'active',
   },
 };

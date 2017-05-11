@@ -9,11 +9,14 @@
     <div class="navbar-brand">&nbsp;</div>
     <div class="collapse navbar-collapse" id="mainManu">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-        <li class="nav-item active">
-          <nuxt-link to="/" class="nav-link">Home</nuxt-link>
-        </li>
+        <nuxt-link tag="li" to="/" class="nav-item">
+          <a class="nav-link">Home</a>
+        </nuxt-link>
+        <nuxt-link v-if="isAuthenticated" tag="li" to="/private" class="nav-item">
+          <a class="nav-link">Private</a>
+        </nuxt-link>
       </ul>
-      <form class="form-inline align-middle" >
+      <form class="form-inline align-middle mt-2 mt-mt-0" >
         <nuxt-link v-if="!isAuthenticated" to="/auth/login" class="btn btn-sm btn-outline-success mr-2">Login</nuxt-link>
         <nuxt-link v-if="!isAuthenticated" to="/auth/register" class="btn btn-sm btn-outline-primary">Register</nuxt-link>
         <nuxt-link v-if="isAuthenticated" to="/auth/logout" class="btn btn-sm btn-outline-secondary">Logout</nuxt-link>
