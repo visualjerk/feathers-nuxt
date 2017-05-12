@@ -17,9 +17,9 @@
         </nuxt-link>
       </ul>
       <form class="form-inline align-middle mt-2 mt-mt-0" >
-        <nuxt-link v-if="!isAuthenticated" to="/auth/login" class="btn btn-sm btn-outline-success mr-2">Login</nuxt-link>
-        <nuxt-link v-if="!isAuthenticated" to="/auth/register" class="btn btn-sm btn-outline-primary">Register</nuxt-link>
-        <nuxt-link v-if="isAuthenticated" to="/auth/logout" class="btn btn-sm btn-outline-secondary">Logout</nuxt-link>
+        <nuxt-link v-if="!isAuthenticated" to="/auth/login" class="btn btn-sm btn-success mr-2">Login</nuxt-link>
+        <nuxt-link v-if="!isAuthenticated" to="/auth/register" class="btn btn-sm btn-primary">Register</nuxt-link>
+        <nuxt-link v-if="isAuthenticated" to="/auth/logout" class="btn btn-sm btn-secondary">Logout</nuxt-link>
       </form>
     </div>
     </div>
