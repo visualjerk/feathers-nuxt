@@ -16,7 +16,7 @@
           <a class="nav-link">Private</a>
         </nuxt-link>
       </ul>
-      <form class="form-inline align-middle mt-2 mt-mt-0" >
+      <form class="form-inline" >
         <nuxt-link v-if="!isAuthenticated" to="/auth/login" class="btn btn-sm btn-success mr-2">Login</nuxt-link>
         <nuxt-link v-if="!isAuthenticated" to="/auth/register" class="btn btn-sm btn-primary">Register</nuxt-link>
         <nuxt-link v-if="isAuthenticated" to="/auth/logout" class="btn btn-sm btn-secondary">Logout</nuxt-link>
