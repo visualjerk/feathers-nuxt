@@ -29,7 +29,6 @@
       return {
         email: '',
         password: '',
-        remember: false,
       }
     },
     methods: {
