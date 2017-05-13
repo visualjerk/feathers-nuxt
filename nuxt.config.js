@@ -26,7 +26,7 @@ module.exports = {
     ],
     extend(config) {
       const aliases = Object.assign(config.resolve.alias, {
-        '~helpers': path.resolve(__dirname, 'helpers'),
+        '~helpers': path.resolve(__dirname, 'client/helpers'),
       });
       config.resolve.alias = aliases; // eslint-disable-line no-param-reassign
     },
@@ -43,4 +43,6 @@ module.exports = {
     middleware: 'check-auth',
     linkActiveClass: 'active',
   },
+  rootDir: path.resolve(__dirname),
+  srcDir: path.resolve(__dirname, 'client'),
 };
