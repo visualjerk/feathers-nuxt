@@ -1,6 +1,3 @@
-const handler = require('feathers-errors/handler');
-const notFound = require('feathers-errors/not-found');
-
 const nuxt = require('./nuxt');
 
 module.exports = function () {
@@ -10,7 +7,4 @@ module.exports = function () {
   const app = this;
 
   app.use(nuxt.render);
-
-  app.use(notFound());
-  app.use(handler());
 };
