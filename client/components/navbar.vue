@@ -14,6 +14,9 @@
         <nuxt-link v-if="isAuthenticated" tag="li" to="/private" class="nav-item">
           <a class="nav-link">Private</a>
         </nuxt-link>
+        <nuxt-link v-if="isAuthenticated" tag="li" to="/posts" class="nav-item">
+          <a class="nav-link">Create Post</a>
+        </nuxt-link>
       </ul>
       <form class="form-inline">
         <nuxt-link v-if="!isAuthenticated" to="/auth/login" class="btn btn-sm btn-success mr-2">Login</nuxt-link>
