@@ -3,6 +3,7 @@ const compress = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
+const swagger = require('feathers-swagger');
 
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
@@ -33,6 +34,16 @@ app.configure(rest());
 app.configure(socketio());
 
 app.configure(authentication);
+
+// Set up automatic swagger docs
+app.configure(swagger({
+  docsPath: '/docs',
+  uiIndex: path.join(__dirname, 'docs/docs.html'),
+  info: {
+    title: 'Human Connection API',
+    description: 'API documentation for humanconnection.org'
+  }
+}))
 
 // Set up our services (see `services/index.js`)
 app.configure(services);
